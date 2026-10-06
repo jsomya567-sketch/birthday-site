@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>A Little Birthday Surprise ❤️</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+    <style>
+
+        /* =====================================================
+           SHINCHAN VIDEO
+           ===================================================== */
+
+        .shinchan-animation {
+            width: 190px;
+            height: 190px;
+
+            margin: 8px auto 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            position: relative;
+            z-index: 10;
+        }
+
+        .shinchan-animation video {
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+
+            display: block;
+
+            border: 0;
+            outline: 0;
+
+            background: transparent;
+
+            border-radius: 18px;
+        }
+
+
+        /* Opening Shinchan */
+
+        .dancing-shinchan {
+            width: 245px;
+            height: 245px;
+
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+
+        /* How Dare You */
+
+        .dare-shinchan {
+            width: 230px;
+            height: 230px;
+
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+
+        /* =====================================================
+           MAKE A WISH TEXT
+           ===================================================== */
+
+        .wish-page .section-title {
+            max-width: 850px;
+
+            margin-left: auto;
+            margin-right: auto;
+
+            line-height: 1.15;
+        }
+
+        .wish-page .wish-message {
+            max-width: 700px;
+
+            margin: 18px auto;
+
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           ENDING VIDEO
+           ===================================================== */
+
+        .ending-video-wrapper {
+            width: min(90%, 650px);
+
+            margin: 20px auto;
+
+            display: flex;
+            justify-content: center;
+        }
+
+        .ending-video-wrapper video {
+            width: 100%;
+
+            max-height: 430px;
+
+            object-fit: contain;
+
+            border-radius: 18px;
+
+            display: block;
+        }
+
+
+        /* =====================================================
+           MOBILE
+           ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .shinchan-animation {
+                width: 155px;
+                height: 155px;
+            }
+
+            .dancing-shinchan {
+                width: 205px;
+                height: 205px;
+            }
+
+            .dare-shinchan {
+                width: 195px;
+                height: 195px;
+            }
+
+            .wish-page .section-title {
+                font-size: 30px;
+            }
+
+            .wish-page .wish-message {
+                font-size: 19px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="scrapbook">
+
+
+    <!-- =====================================================
+         PAGE 1
+         OPENING
+         ===================================================== -->
+
+    <section
+        class="page active"
+        id="startPage"
+    >
+
+        <div class="paper">
+
+            <div class="tape tape-top"></div>
+
+            <div class="little-flower flower-one">
+                ✿
+            </div>
+
+            <div class="little-flower flower-two">
+                ✿
+            </div>
+
+
+            <div class="page-content opening">
+
+                <div class="small-label">
+                    A LITTLE SURPRISE
+                </div>
+
+
+                <h1 class="handwriting big-title">
+                    I made something
+                    <br>
+                    special for you...
+                </h1>
+
+
+                <!-- SHINCHAN 1 -->
+
+                <div class="shinchan-animation dancing-shinchan">
+
+                    <video
+                        id="shinchan1"
+                        muted
+                        playsinline
+                        autoplay
+                        loop
+                        preload="auto"
+                    >
+
+                        <source
+                            src="{{ url_for(
+                                'static',
+                                filename='shinchan1.mp4'
+                            ) }}"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+                </div>
+
+
+                <p class="handwriting question">
+                    Do you wanna see it?
+                </p>
+
+
+                <div class="yes-no">
+
+                    <button
+                        class="orange-button"
+                        onclick="sayYes()"
+                    >
+                        YES ❤️
+                    </button>
+
+
+                    <button
+                        class="orange-button"
+                        onclick="sayNo()"
+                    >
+                        NO
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PAGE 2
+         HOW DARE YOU
+         ===================================================== -->
+
+    <section
+        class="page"
+        id="noPage"
+    >
+
+        <div class="paper">
+
+            <div class="page-content no-page-content">
+
+
+                <h1 class="handwriting dare-title">
+                    HOW DARE YOU?
+                </h1>
+
+
+                <!-- SHINCHAN 2 -->
+
+                <div class="shinchan-animation dare-shinchan">
+
+                    <video
+                        id="shinchan2"
+                        muted
+                        playsinline
+                        autoplay
+                        loop
+                        preload="auto"
+                    >
+
+                        <source
+                            src="{{ url_for(
+                                'static',
+                                filename='shinchan2.mp4'
+                            ) }}"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+                </div>
+
+
+                <p class="handwriting small-message">
+                    You really thought you could say no?
+                </p>
+
+
+                <button
+                    class="orange-button"
+                    onclick="goToPage('startPage')"
+                >
+                    TRY AGAIN →
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PAGE 3
+         GIFTS
+         ===================================================== -->
+
+    <section
+        class="page"
+        id="giftPage"
+    >
+
+        <div class="paper">
+
+            <div class="page-content">
+
+
+                <div class="small-label">
+                    JUST FOR YOU
+                </div>
+
+
+                <h1 class="handwriting section-title">
+                    I have something
+                    <br>
+                    for you. ❤️
+                </h1>
+
+
+                <!-- SHINCHAN 3 / DANCING -->
+
+                <div class="shinchan-animation dancing-shinchan">
+
+                    <video
+                        id="shinchan3"
+                        muted
+                        playsinline
+                        autoplay
+                        loop
+                        preload="auto"
+                    >
+
+                        <source
+                            src="{{ url_for(
+                                'static',
+                                filename='shinchan3.mp4'
+                            ) }}"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+                </div>
+
+
+                <p class="handwriting subtitle">
+                    Each gift has something
+                    <br>
+                    for you.
+                </p>
+
+
+                <div class="gift-area">
+
+
+                    <!-- GIFT 1 -->
+
+                    <button
+                        class="gift-button"
+                        onclick="openGift(1)"
+                    >
+
+                        <div class="gift-box">
+
+                            <div class="gift-lid"></div>
+
+                            <div class="gift-body"></div>
+
+                            <div class="gift-ribbon-v"></div>
+
+                            <div class="gift-ribbon-h"></div>
+
+                            <div class="gift-bow">
+                                🎀
+                            </div>
+
+                        </div>
+
+                    </button>
+
+
+
+                    <!-- GIFT 2 -->
+
+                    <button
+                        class="gift-button"
+                        onclick="openGift(2)"
+                    >
+
+                        <div class="gift-box gift-two">
+
+                            <div class="gift-lid"></div>
+
+                            <div class="gift-body"></div>
+
+                            <div class="gift-ribbon-v"></div>
+
+                            <div class="gift-ribbon-h"></div>
+
+                            <div class="gift-bow">
+                                🎀
+                            </div>
+
+                        </div>
+
+                    </button>
+
+
+
+                    <!-- GIFT 3 -->
+
+                    <button
+                        class="gift-button"
+                        onclick="openGift(3)"
+                    >
+
+                        <div class="gift-box gift-three">
+
+                            <div class="gift-lid"></div>
+
+                            <div class="gift-body"></div>
+
+                            <div class="gift-ribbon-v"></div>
+
+                            <div class="gift-ribbon-h"></div>
+
+                            <div class="gift-bow">
+                                🎀
+                            </div>
+
+                        </div>
+
+                    </button>
+
+
+                </div>
+
+
+                <p class="click-one">
+                    CLICK ON ONE
+                </p>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PAGE 4
+         BIRTHDAY CARD
+         ===================================================== -->
+
+    <section
+        class="page"
+        id="birthdayPage"
+    >
+
+        <div class="paper">
+
+            <div class="page-content birthday-page">
+
+
+                <div class="decorated-title">
+
+                    <span>H</span>
+                    <span>A</span>
+                    <span>P</span>
+                    <span>P</span>
+                    <span>Y</span>
+
+                </div>
+
+
+                <h1 class="handwriting birthday-title">
+                    21 MERI JAAN
+                </h1>
+
+
+                <div class="photo-card birthday-photo">
+
+                    <div class="photo-tape"></div>
+
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename='birthday card pic.jpeg'
+                        ) }}"
+                        alt="Birthday photo"
+                    >
+
+                </div>
+
+
+                <p class="handwriting photo-caption">
+                    I LOVE YOU MORE THAN YOU KNOW ❤️
+                </p>
+
+
+                <button
+                    class="orange-button back-button"
+                    onclick="goToPage('giftPage')"
+                >
+                    ← BACK TO GIFTS
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PAGE 5
+         MAKE A WISH
+         ===================================================== -->
+
+    <section
+        class="page"
+        id="wishPage"
+    >
+
+        <div class="paper">
+
+            <div class="page-content wish-page">
+
+
+                <div class="small-label">
+                    GIFT NUMBER TWO
+                </div>
+
+
+                <!-- NEW TEXT -->
+
+                <h1 class="handwriting section-title">
+
+                    The irl Shinchan
+                    <br>
+
+                    without whom life
+                    <br>
+
+                    would have been
+                    <br>
+
+                    boring as hell ❤️
+
+                </h1>
+
+
+                <p class="handwriting wish-message">
+
+                    Ps: ab to yaad karle mera ghar ka address 😭🙏
+
+                </p>
+
+
+                <!-- YOUR VIDEO -->
+
+                <div class="ending-video-wrapper">
+
+                    <video
+                        autoplay
+                        muted
+                        playsinline
+                        loop
+                        controls
+                    >
+
+                        <source
+                            src="{{ url_for(
+                                'static',
+                                filename='ending.mp4'
+                            ) }}"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+                </div>
+
+
+                <button
+                    class="orange-button back-button"
+                    onclick="goToPage('giftPage')"
+                >
+                    ← BACK TO GIFTS
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PAGE 6
+         MEMORIES
+         ===================================================== -->
+
+    <section
+        class="page"
+        id="memoriesPage"
+    >
+
+        <div class="memory-paper">
+
+
+            <div class="memory-header">
+
+                <div class="memory-letter m">
+                    M
+                </div>
+
+                <div class="memory-letter e">
+                    E
+                </div>
+
+                <div class="memory-letter m2">
+                    M
+                </div>
+
+                <div class="memory-letter o">
+                    O
+                </div>
+
+                <div class="memory-letter r">
+                    R
+                </div>
+
+                <div class="memory-letter i">
+                    I
+                </div>
+
+                <div class="memory-letter e2">
+                    E
+                </div>
+
+                <div class="memory-letter s">
+                    S
+                </div>
+
+            </div>
+
+
+            <div class="memory-subtitle handwriting">
+                grateful for the 10 years and the upcoming ones always❤️
+            </div>
+
+
+            <!-- NO SHINCHAN HERE -->
+
+
+            <div class="clothesline">
+
+                <div class="string"></div>
+
+
+                <div class="memory-photo photo-one">
+
+                    <div class="clothespin"></div>
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename='memory 1.jpeg'
+                        ) }}"
+                        alt="Memory 1"
+                    >
+
+                </div>
+
+
+                <div class="memory-photo photo-two">
+
+                    <div class="clothespin"></div>
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename='memory 2.jpeg'
+                        ) }}"
+                        alt="Memory 2"
+                    >
+
+                </div>
+
+
+                <div class="memory-photo photo-three">
+
+                    <div class="clothespin"></div>
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename='memory 3.jpeg'
+                        ) }}"
+                        alt="Memory 3"
+                    >
+
+                </div>
+
+
+                <div class="memory-photo photo-four">
+
+                    <div class="clothespin"></div>
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename='memory 4.jpeg'
+                        ) }}"
+                        alt="Memory 4"
+                    >
+
+                </div>
+
+
+                <div class="memory-photo photo-five">
+
+                    <div class="clothespin"></div>
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename='memory 5.jpeg'
+                        ) }}"
+                        alt="Memory 5"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+            <div class="scrap-flower flower-left">
+                🌸
+            </div>
+
+
+            <div class="scrap-flower flower-right">
+                🌺
+            </div>
+
+
+            <div class="tiny-camera">
+                📷
+            </div>
+
+
+            <button
+                class="orange-button letter-button"
+                onclick="goToPage('letterPage')"
+            >
+                READ MY LETTER 💌
+            </button>
+
+
+            <br>
+
+
+            <button
+                class="orange-button memory-back"
+                onclick="goToPage('giftPage')"
+            >
+                ← BACK TO GIFTS
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PAGE 7
+         FINAL LETTER
+         ===================================================== -->
+
+    <section
+        class="page"
+        id="letterPage"
+    >
+
+        <div class="paper">
+
+            <div class="page-content letter-page">
+
+
+                <div class="small-label">
+                    ONE LAST THING
+                </div>
+
+
+                <h1 class="handwriting section-title">
+                    A little letter
+                    <br>
+                    for you 💌
+                </h1>
+
+
+                <!-- SHINCHAN 7 -->
+
+                <div class="shinchan-animation">
+
+                    <video
+                        id="shinchan7"
+                        muted
+                        playsinline
+                        autoplay
+                        loop
+                        preload="auto"
+                    >
+
+                        <source
+                            src="{{ url_for(
+                                'static',
+                                filename='shinchan7.mp4'
+                            ) }}"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+                </div>
+
+
+                <div class="letter-card">
+
+                    <div class="letter-tape"></div>
+
+
+                    <p class="handwriting">
+
+                        Happy Birthday to the sweetest person! 🎀❤️
+
+                        I hope today brings you all the little things
+                        that make you smile, because you truly deserve
+                        every bit of happiness in the world.
+
+                        Thank you for being such a beautiful part of my
+                        life and for making ordinary moments feel a
+                        little more special.
+
+                        I hope this new year of your life is filled with
+                        lots of laughter, unforgettable memories,
+                        late-night conversations, silly moments,
+                        and dreams coming true.
+
+                        Keep smiling, keep shining, and never forget
+                        just how loved and special you are.
+
+                    </p>
+
+
+                    <p>
+                        I hope this little surprise
+                        made you smile.
+                    </p>
+
+
+                    <p>
+                        You deserve all the happiness,
+                        laughter and beautiful moments
+                        in the world.
+                    </p>
+
+
+                    <p>
+                        Thank you for being you. ❤️
+                    </p>
+
+
+                </div>
+
+
+                <button
+                    class="orange-button"
+                    onclick="goToPage('giftPage')"
+                >
+                    ← BACK TO GIFTS
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     MUSIC
+     ===================================================== -->
+
+<audio
+    id="birthdayMusic"
+    preload="auto"
+>
+
+    <source
+        src="{{ url_for(
+            'static',
+            filename='her.mp3'
+        ) }}"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+
+<script>
+
+
+/* =====================================================
+   AUDIO
+   ===================================================== */
+
+const music =
+    document.getElementById("birthdayMusic");
+
+
+
+/* =====================================================
+   ONLY THE SHINCHAN VIDEOS THAT ARE STILL USED
+   ===================================================== */
+
+const shinchanVideos = [
+
+    document.getElementById("shinchan1"),
+
+    document.getElementById("shinchan2"),
+
+    document.getElementById("shinchan3"),
+
+    document.getElementById("shinchan7")
+
+];
+
+
+
+/* =====================================================
+   PLAY SHINCHAN ON PAGE
+   ===================================================== */
+
+function playShinchanOnPage(pageID) {
+
+
+    const page =
+        document.getElementById(pageID);
+
+
+    if (!page) {
+        return;
+    }
+
+
+    const video =
+        page.querySelector("video");
+
+
+    if (!video) {
+        return;
+    }
+
+
+    try {
+
+        video.currentTime = 0;
+
+
+        const result =
+            video.play();
+
+
+        if (result !== undefined) {
+
+            result.catch(function(error) {
+
+                console.log(
+                    "Video autoplay blocked:",
+                    error
+                );
+
+            });
+
+        }
+
+    }
+
+    catch(error) {
+
+        console.log(
+            "Video error:",
+            error
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   PAGE NAVIGATION
+   ===================================================== */
+
+function goToPage(pageID) {
+
+
+    const pages =
+        document.querySelectorAll(".page");
+
+
+    pages.forEach(function(page) {
+
+        page.classList.remove("active");
+
+    });
+
+
+    const selected =
+        document.getElementById(pageID);
+
+
+    if (selected) {
+
+        selected.classList.add("active");
+
+        selected.scrollTop = 0;
+
+    }
+
+
+    setTimeout(function() {
+
+        playShinchanOnPage(pageID);
+
+    }, 100);
+
+}
+
+
+
+/* =====================================================
+   YES
+   MUSIC STARTS AT 0.32 SECONDS
+   ===================================================== */
+
+function sayYes() {
+
+
+    try {
+
+        music.currentTime = 0.32;
+
+    }
+
+    catch(error) {
+
+        console.log(error);
+
+    }
+
+
+    const playMusic =
+        music.play();
+
+
+    if (playMusic !== undefined) {
+
+        playMusic.catch(function(error) {
+
+            console.log(
+                "Audio playback was blocked:",
+                error
+            );
+
+        });
+
+    }
+
+
+    goToPage("giftPage");
+
+}
+
+
+
+/* =====================================================
+   NO
+   ===================================================== */
+
+function sayNo() {
+
+    goToPage("noPage");
+
+}
+
+
+
+/* =====================================================
+   GIFTS
+   ===================================================== */
+
+function openGift(number) {
+
+
+    if (number === 1) {
+
+        goToPage("birthdayPage");
+
+    }
+
+
+    else if (number === 2) {
+
+        goToPage("wishPage");
+
+    }
+
+
+    else if (number === 3) {
+
+        goToPage("memoriesPage");
+
+    }
+
+}
+
+
+
+/* =====================================================
+   PAGE LOAD
+   ===================================================== */
+
+window.addEventListener(
+    "load",
+    function() {
+
+
+        /* Start opening Shinchan */
+
+        playShinchanOnPage("startPage");
+
+
+        /* Prepare active Shinchan videos */
+
+        shinchanVideos.forEach(
+            function(video) {
+
+
+                if (!video) {
+                    return;
+                }
+
+
+                video.muted = true;
+
+                video.playsInline = true;
+
+                video.loop = true;
+
+
+                video.setAttribute(
+                    "playsinline",
+                    ""
+                );
+
+
+                video.setAttribute(
+                    "webkit-playsinline",
+                    ""
+                );
+
+
+                video.addEventListener(
+                    "error",
+                    function() {
+
+                        console.log(
+                            "Shinchan video failed:",
+                            video.currentSrc
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+    }
+);
+
+
+
+/* =====================================================
+   VIDEO DEBUG
+   ===================================================== */
+
+shinchanVideos.forEach(
+    function(video, index) {
+
+
+        if (!video) {
+            return;
+        }
+
+
+        video.addEventListener(
+            "loadeddata",
+            function() {
+
+                console.log(
+                    "Shinchan " +
+                    (index + 1) +
+                    " loaded successfully."
+                );
+
+            }
+        );
+
+    }
+);
+
+
+</script>
+
+
+</body>
+
+</html>
