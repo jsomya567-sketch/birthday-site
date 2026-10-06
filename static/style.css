@@ -1,7 +1,4 @@
-@import url(
-    'https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Patrick+Hand&family=DM+Sans:wght@400;500;600;700&display=swap'
-);
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Chewy&family=Caveat:wght@400;500;600;700&family=Patrick+Hand&family=DM+Sans:wght@400;500;600;700&display=swap');
 
 /* =========================================================
    RESET
@@ -925,7 +922,7 @@ body {
         15px;
 
     font-size:
-        90px;
+        70px;
 
 }
 
@@ -2844,100 +2841,106 @@ body {
 }
 
 /* =========================================================
-   MEMORIES PAGE — FINAL FIX
+   MEMORIES PAGE — CLEAN FINAL FIX
    ========================================================= */
 
+/* Let the Memories page itself scroll */
 #memoriesPage {
     overflow-y: auto !important;
     overflow-x: hidden !important;
-    height: 100vh !important;
+    height: 100% !important;
 }
 
+/* Keep the scrapbook paper natural in height */
 #memoriesPage .memory-paper {
-    position: relative !important;
     height: auto !important;
-    min-height: 100vh !important;
+    min-height: 100% !important;
     overflow: visible !important;
+    padding-bottom: 35px !important;
 }
-
 
 /* =========================
-   PHOTO CLOTHESLINE
+   PHOTO AREA
    ========================= */
 
 #memoriesPage .clothesline {
     position: relative !important;
 
-    width: calc(100% - 50px) !important;
-    height: 380px !important;
+    width: 100% !important;
+    max-width: 760px !important;
 
-    margin: 30px auto 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
 
-    display: flex !important;
-    align-items: flex-start !important;
-    justify-content: space-between !important;
+    margin: 35px auto 0 !important;
+    padding: 45px 10px 15px !important;
 
-    gap: 12px !important;
+    display: grid !important;
+
+    grid-template-columns: repeat(5, 1fr) !important;
+
+    gap: 18px !important;
+
+    align-items: start !important;
 }
 
-
-/* THE STRING */
-
+/* Clothesline */
 #memoriesPage .clothesline .string {
     position: absolute !important;
 
-    left: 0 !important;
-    right: 0 !important;
-    top: 18px !important;
+    left: 3% !important;
+    right: 3% !important;
+    top: 20px !important;
 
-    height: 2px !important;
+    width: auto !important;
+    height: 3px !important;
 
     z-index: 1 !important;
 }
 
-
-/* PHOTOS */
+/* =========================
+   PHOTOS
+   ========================= */
 
 #memoriesPage .memory-photo {
     position: relative !important;
 
-    width: 82px !important;
-    min-width: 82px !important;
-    max-width: 82px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
 
-    height: 120px !important;
+    height: auto !important;
 
-    margin: 35px 0 0 !important;
-    padding: 6px !important;
+    margin: 0 !important;
+
+    padding: 7px 7px 15px !important;
+
+    background: white !important;
 
     box-sizing: border-box !important;
 
     z-index: 3 !important;
 }
 
-
-/* ACTUAL IMAGE */
-
+/* Actual photographs */
 #memoriesPage .memory-photo img {
     display: block !important;
 
     width: 100% !important;
-    height: 102px !important;
+    height: 175px !important;
 
     object-fit: cover !important;
 }
 
-
-/* CLOTHESPIN */
-
+/* Clothespins */
 #memoriesPage .memory-photo .clothespin {
     position: absolute !important;
 
-    top: -17px !important;
+    top: -25px !important;
     left: 50% !important;
 
-    width: 11px !important;
-    height: 28px !important;
+    width: 16px !important;
+    height: 38px !important;
 
     margin: 0 !important;
 
@@ -2946,9 +2949,7 @@ body {
     z-index: 20 !important;
 }
 
-
-/* REMOVE OLD OFFSETS */
-
+/* Remove old absolute positioning */
 #memoriesPage .photo-one,
 #memoriesPage .photo-two,
 #memoriesPage .photo-three,
@@ -2960,9 +2961,7 @@ body {
     bottom: auto !important;
 }
 
-
-/* LITTLE SCRAPBOOK ROTATIONS */
-
+/* Slight scrapbook rotations */
 #memoriesPage .photo-one {
     transform: rotate(-3deg) !important;
 }
@@ -2983,48 +2982,475 @@ body {
     transform: rotate(-2deg) !important;
 }
 
-
 /* =========================
-   BUTTONS
+   READ MY LETTER
    ========================= */
 
-/* Remove the HTML <br> effect */
+#memoriesPage .letter-button {
+    position: relative !important;
+
+    display: flex !important;
+
+    width: 180px !important;
+    min-width: 180px !important;
+    height: 45px !important;
+
+    margin: 20px auto 0 !important;
+    padding: 0 !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    z-index: 10 !important;
+}
+
+/* =========================
+   REMOVE BACK TO GIFTS
+   ========================= */
+
+#memoriesPage .memory-back {
+    display: none !important;
+}
+
+/* Remove the <br> that used to separate the two buttons */
 #memoriesPage br {
     display: none !important;
 }
 
 
-/* Both buttons same size */
-#memoriesPage .letter-button,
-#memoriesPage .memory-back {
-    width: 115px !important;
-    min-width: 115px !important;
-    height: 32px !important;
+/* =========================================================
+   MOBILE MEMORIES
+   ========================================================= */
 
-    padding: 0 !important;
+@media (max-width: 700px) {
 
-    box-sizing: border-box !important;
+    #memoriesPage .memory-paper {
+        padding:
+            25px 12px 30px !important;
+    }
 
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    #memoriesPage .clothesline {
+        width: 100% !important;
 
-    margin-left: auto !important;
-    margin-right: auto !important;
+        margin-top: 25px !important;
+
+        padding:
+            40px 8px 10px !important;
+
+        grid-template-columns:
+            repeat(3, 1fr) !important;
+
+        gap:
+            22px 12px !important;
+    }
+
+    #memoriesPage .memory-photo {
+        width: 100% !important;
+    }
+
+    #memoriesPage .memory-photo img {
+        height: 145px !important;
+    }
+
+    #memoriesPage .memory-photo .clothespin {
+        top: -22px !important;
+
+        width: 14px !important;
+        height: 34px !important;
+    }
+
+    /*
+       Put photos 4 and 5 on the second row
+       and keep the arrangement centered.
+    */
+
+    #memoriesPage .photo-four {
+        grid-column: 1 !important;
+    }
+
+    #memoriesPage .photo-five {
+        grid-column: 2 !important;
+    }
+
+    #memoriesPage .letter-button {
+        width: 190px !important;
+        min-width: 190px !important;
+
+        height: 44px !important;
+
+        margin:
+            22px auto 0 !important;
+    }
+}
+
+/* =========================================================
+   🌸 PINK SCRAPBOOK THEME
+   COLORS + FONTS ONLY
+   ========================================================= */
+
+/* ---------- MAIN FONTS ---------- */
+
+body {
+    font-family: "Patrick Hand", cursive;
+}
+
+.cute-heading,
+.memory-title,
+.click-text,
+.red-button {
+    font-family: "Chewy", cursive !important;
+}
+
+.cute-question,
+.cute-subtitle,
+.wish-text,
+.photo-caption,
+.small-message,
+.question,
+.subtitle {
+    font-family: "Caveat", cursive !important;
+}
+
+.letter-card {
+    font-family: "Caveat", cursive !important;
+}
+
+.letter-card .handwriting {
+    font-family: "Caveat", cursive !important;
+}
+
+.memory-subtitle {
+    font-family: "Caveat", cursive !important;
+}
+
+.decorated-title,
+.birthday-decoration {
+    font-family: "Chewy", cursive !important;
+}
+
+.birthday-script {
+    font-family: "Caveat", cursive !important;
 }
 
 
-/* READ MY LETTER */
+/* =========================================================
+   🎀 PINK BACKGROUND
+   ========================================================= */
+
+body {
+    background: #211317 !important;
+}
+
+
+/* =========================================================
+   🌷 SCRAPBOOK BORDER
+   ========================================================= */
+
+.scrapbook {
+    background:
+        repeating-conic-gradient(
+            #d85f78 0 25%,
+            #f8d9df 0 50%
+        ) 50% / 28px 28px !important;
+}
+
+
+/* =========================================================
+   💗 MAIN PAPER
+   ========================================================= */
+
+.paper {
+    background-color: #fff4f6 !important;
+}
+
+
+/* =========================================================
+   🎀 MAIN HEADINGS
+   ========================================================= */
+
+.cute-heading,
+.big-title,
+.section-title,
+.dare-title {
+    color: #b83f59 !important;
+}
+
+
+/* =========================================================
+   🌸 SUBTITLES / TEXT
+   ========================================================= */
+
+.cute-question,
+.cute-subtitle,
+.question,
+.subtitle,
+.small-message,
+.photo-caption,
+.wish-text,
+.memory-subtitle {
+    color: #8f4052 !important;
+}
+
+
+/* =========================================================
+   💕 BUTTONS
+   ========================================================= */
+
+.red-button,
+.orange-button {
+    background: #d95b78 !important;
+    color: #fff !important;
+    box-shadow: 0 7px 0 #a83d55 !important;
+}
+
+.red-button:hover,
+.orange-button:hover {
+    background: #e36f89 !important;
+}
+
+.red-button:active,
+.orange-button:active {
+    box-shadow: 0 3px 0 #a83d55 !important;
+}
+
+
+/* =========================================================
+   🎀 GIFT BOXES
+   ========================================================= */
+
+.gift-body {
+    background:
+        linear-gradient(
+            90deg,
+            #f39aae,
+            #f7b6c5
+        ) !important;
+}
+
+.gift-lid {
+    background:
+        linear-gradient(
+            90deg,
+            #ee829b,
+            #f5a8b9
+        ) !important;
+}
+
+.gift-ribbon.vertical,
+.gift-ribbon.horizontal {
+    background: #c94361 !important;
+}
+
+.click-text {
+    color: #9d354e !important;
+}
+
+
+/* =========================================================
+   🌹 BIRTHDAY PAGE
+   ========================================================= */
+
+.birthday-decoration,
+.birthday-script {
+    color: #b83f59 !important;
+}
+
+.birthday-photo {
+    background: #fff !important;
+}
+
+.cute-caption {
+    color: #b83f59 !important;
+}
+
+
+/* =========================================================
+   💗 MAKE A WISH
+   ========================================================= */
+
+.make-wish,
+.cake-area {
+    color: #b83f59 !important;
+}
+
+.wish-text {
+    color: #8f4052 !important;
+}
+
+
+/* =========================================================
+   🌸 MEMORIES PAGE
+   ========================================================= */
+
+.memory-paper {
+    background: #fff1f3 !important;
+}
+
+.memory-title {
+    color: #b83f59 !important;
+}
+
+.memory-subtitle {
+    color: #994256 !important;
+}
+
+
+/* Memory title tiles */
+
+.memory-letter:nth-child(odd) {
+    background: #d95b78 !important;
+}
+
+.memory-letter:nth-child(even) {
+    background: #c94b68 !important;
+}
+
+.memory-letter {
+    color: #fff1f3 !important;
+}
+
+
+/* Clothesline */
+
+.clothesline::before,
+.clothesline .string {
+    background: #8f4052 !important;
+}
+
+
+/* Photo pins */
+
+.clothespin {
+    background: #e8b0bb !important;
+    border-color: #b87583 !important;
+}
+
+.clothespin::after {
+    background: #b87583 !important;
+}
+
+
+/* Photos */
+
+.memory-photo {
+    background: #fff !important;
+}
+
+
+/* Read letter button */
 
 #memoriesPage .letter-button {
-    margin-top: 15px !important;
-    margin-bottom: 10px !important;
+    background: #d95b78 !important;
+    color: white !important;
 }
 
 
-/* BACK TO GIFTS */
+/* Keep Back to Gifts hidden */
 
 #memoriesPage .memory-back {
-    margin-top: 10px !important;
-    margin-bottom: 25px !important;
+    display: none !important;
+}
+
+
+/* =========================================================
+   💌 LETTER PAGE
+   ========================================================= */
+
+.letter-card {
+    background: #fff7f8 !important;
+    border-color: #efd0d7 !important;
+    color: #713847 !important;
+}
+
+.letter-card .handwriting {
+    color: #b83f59 !important;
+}
+
+
+/* Letter tape */
+
+.letter-tape,
+.letter-card .tape {
+    background: rgba(238, 166, 181, .75) !important;
+}
+
+
+/* =========================================================
+   🌸 GENERAL PINK ACCENTS
+   ========================================================= */
+
+.little-flower,
+.scrap-flower {
+    color: #d95b78 !important;
+}
+
+.photo-tape {
+    background: rgba(238, 166, 181, .75) !important;
+}
+
+
+/* =========================================================
+   📱 MOBILE — KEEP SAME LAYOUT
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .cute-heading,
+    .memory-title {
+        font-family: "Chewy", cursive !important;
+    }
+
+    .cute-question,
+    .cute-subtitle,
+    .memory-subtitle,
+    .wish-text {
+        font-family: "Caveat", cursive !important;
+    }
+
+}
+
+/* =========================================
+   INSTAGRAM STRONG-STYLE FONT
+   ========================================= */
+
+body,
+button {
+    font-family: "Montserrat", sans-serif !important;
+}
+
+/* Main headings */
+.cute-heading,
+.memory-title,
+.big-title,
+.section-title,
+.dare-title,
+.make-wish,
+.birthday-script {
+    font-family: "Montserrat", sans-serif !important;
+    font-weight: 800 !important;
+}
+
+/* Smaller headings / messages */
+.cute-question,
+.cute-subtitle,
+.memory-subtitle,
+.wish-text,
+.question,
+.subtitle {
+    font-family: "Montserrat", sans-serif !important;
+    font-weight: 600 !important;
+}
+
+/* Buttons */
+.red-button,
+.orange-button,
+.letter-button {
+    font-family: "Montserrat", sans-serif !important;
+    font-weight: 800 !important;
+}
+
+/* Make Gift 2 heading slightly smaller */
+#wishPage .section-title {
+    font-size: 38px !important;
+    line-height: 1.08 !important;
 }
